@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/gredient">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="56dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:background="@drawable/gredient">
+
+
+        <!--  Name Label -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Student Signup"
+            android:id="@+id/textView4"
+            android:textColor="#ffffff"
+            android:layout_gravity="center_horizontal"
+            android:textSize="40dp"
+            android:layout_marginTop="-10dp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/userimg"
+            android:layout_gravity="center_horizontal"
+            android:background="@mipmap/user"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffffff"
+            android:onClick="userimage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Click to add your photo"
+            android:id="@+id/photo"
+            android:textColor="#7effffff"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText android:id="@+id/input_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:textColor="#ffffff"
+            android:textColorHint="#6affffff"
+            android:hint="Name"
+            android:theme="@style/myEdittexttheme"/>
+
+
+        <!-- Email Label -->
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_roll"
+            android:textColor="#ffffff"
+            android:textColorHint="#6affffff"
+            android:hint="Roll Number (Ex: BE14F05F032)"
+            android:theme="@style/myEdittexttheme"/>
+
+        <EditText android:id="@+id/input_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="#ffffff"
+            android:textColorHint="#6affffff"
+            android:hint="Email"
+            android:theme="@style/myEdittexttheme"/>
+
+
+        <!-- Password Label -->
+
+        <EditText android:id="@+id/input_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="#ffffff"
+            android:textColorHint="#6affffff"
+            android:hint="Password"
+            android:theme="@style/myEdittexttheme"/>
+
+
+        <!-- Signup Button -->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:textColorHint="#6affffff"
+            android:textColor="#ffffff"
+            android:id="@+id/inputPhone"
+            android:layout_gravity="center_horizontal"
+            android:hint="Mobile Number"
+            android:theme="@style/myEdittexttheme"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year of Study"
+            android:id="@+id/textView3"
+            android:textColor="#9effffff"
+            android:layout_marginTop="20dp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rg">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First Year"
+            android:textColor="#ffffff"
+            android:textColorHint="#95989A"
+            android:id="@+id/FE"
+            android:checked="false" />
+
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Second Year"
+            android:textColor="#ffffff"
+            android:id="@+id/SE"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Third Year"
+            android:id="@+id/TE"
+            android:textColor="#ffffff"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Final Year"
+            android:id="@+id/BE"
+            android:textColor="#ffffff"
+            android:checked="false" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+          android:background="@drawable/signup_btn_transp"
+            android:textColor="#fff"
+            android:text="Create Account"
+            android:onClick="csesignup" />
+
+
+
+        <TextView android:id="@+id/link_login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="Already a member? Login"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="16dip"
+            android:onClick="gotosignin" />
+
+    </LinearLayout>
+</ScrollView>

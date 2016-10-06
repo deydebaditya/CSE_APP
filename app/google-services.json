@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "914434481031",
+    "firebase_url": "https://timelinw.firebaseio.com",
+    "project_id": "timelinw",
+    "storage_bucket": "timelinw.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914434481031:android:2b60224cd7b7d2dd",
+        "android_client_info": {
+          "package_name": "com.iashwin28.cse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914434481031-a8qll98l3o50cr8a6fi3n2br4t6qqe55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT9imqerzBXZQJ9XBD2yliqRT6G5wCt6g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
