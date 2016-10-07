@@ -25,4 +25,5 @@
     <string name="title_activity_time_line">Timeline</string>
     <string name="title_activity_time_table">TimeTable</string>
     <string name="title_activity_notification_display">Notification_display</string>
+    <string name="title_activity_mcqtest">mcqtest</string>
 </resources>

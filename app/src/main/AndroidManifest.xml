@@ -50,9 +50,7 @@
         <activity
             android:name=".LoginSuccesss"
             android:label="CSE"
-            android:theme="@style/AppTheme">
-
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".TimeLine"
             android:label="@string/title_activity_time_line"
@@ -75,6 +73,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".mcqtest"></activity>
     </application>
 
 </manifest>

@@ -33,6 +33,7 @@ public class CustomList1 extends ArrayAdapter<String> {
         LayoutInflater inflater = context.getLayoutInflater();
         View rowView= inflater.inflate(R.layout.lis_single_timeline, null, true);
         rowView.setMinimumHeight(80);
+        rowView.setBackgroundColor(Color.WHITE);
         
         TextView txtTitle = (TextView) rowView.findViewById(R.id.txt);
         TextView textmsg = (TextView)rowView.findViewById(R.id.textView6);

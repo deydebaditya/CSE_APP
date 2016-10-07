@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -47,9 +48,10 @@ public class TimeLine_msg extends AppCompatActivity {
     ImageView img ;
     int flag=0;
     String response;
-    String serverUrl = "http://cseapp.16mb.com/timinsert.php";
+    String serverUrl = "http://cseapp.16mb.com/timeinsert.php";
     ProgressDialog dialog;
     Calendar c;
+    String finalresponse,echo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,12 +127,7 @@ public class TimeLine_msg extends AppCompatActivity {
     }
 
     public void post(View view) {
-//        if(message.length()==0)
-//        {
-//            msg.setError("This field should not be empty!");
-//
-//        }
-//        else {
+
         msg = (EditText) findViewById(R.id.editText3);
         message = msg.getText().toString();
         String length = String.valueOf(message.length());
@@ -165,8 +162,8 @@ public class TimeLine_msg extends AppCompatActivity {
                         respons = httpclient.execute(httppost);
                         Log.d("andro", "4");
                         ResponseHandler<String> responseHandler = new BasicResponseHandler();
-                        response = httpclient.execute(httppost, responseHandler);
-                        Log.d("andro", "response :" + response);
+                      //  response = httpclient.execute(httppost, responseHandler);
+                     //   Log.d("andro", "response :" + response);
                         Log.d("andro", "5");
                         runOnUiThread(new Runnable() {
                             public void run() {
@@ -174,61 +171,48 @@ public class TimeLine_msg extends AppCompatActivity {
                                 dialog.dismiss();
                             }
                         });
-                        String echo = EntityUtils.toString(respons.getEntity());
+                        echo = EntityUtils.toString(respons.getEntity());
                         Log.d("andro",echo);
 
+                        finalresponse=echo;
+                        runOnUiThread(new Runnable() {
+                            public void run() {
+                                if (finalresponse.startsWith("S")) {
+//                                    Log.i("andro", response);
 
+                                    Toast.makeText(TimeLine_msg.this,"Posted Successfully!",Toast.LENGTH_SHORT).show();
+                                    Intent menuIntent = new Intent(TimeLine_msg.this, TimeLine.class);
+                                    menuIntent.putExtra("year",year);
+                                    menuIntent.putExtra("name",name);
+                                 //   Toast.makeText(TimeLine_msg.this,"Posted Successfully!",Toast.LENGTH_SHORT);
+                                    startActivity(menuIntent);
 
-
-
-                        if (response.startsWith("S")) {
-                            Log.i("andro", response);
-
-
-//                        SharedPreferences.Editor editor = sharedpreferences.edit();
-//                        editor.putString(Roll,name);
-                            //  Toast.makeText(SignupActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
-                            runOnUiThread(new Runnable() {
-                                public void run() {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(TimeLine_msg.this);
-                                    builder.setTitle("Posted Successfully");
-                                    builder.setMessage("Your Post is Successfully posted!")
-                                            .setCancelable(false)
-                                            .setPositiveButton("Visit Timeline", new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog, int id) {
-                                                    Intent menuIntent = new Intent(TimeLine_msg.this, TimeLine.class);
-                                                    menuIntent.putExtra("year", year);
-                                                    menuIntent.putExtra("name", name);
-                                                    //menuIntent.putExtra("flag", 1);
-                                                    startActivity(menuIntent);
-                                                    finish();
-                                                }
-                                            });
-                                    AlertDialog alert = builder.create();
-                                    alert.show();
-
-
+                                    finish();
                                 }
-                            });
-                        } else {
-                            runOnUiThread(new Runnable() {
-                                public void run() {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(TimeLine_msg.this);
-                                    builder.setTitle("Unsuccessful Post!");
-                                    builder.setMessage("Due to some reasons your post cant posted")
-                                            .setCancelable(false)
-                                            .setPositiveButton("Try Again!", new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog, int id) {
-
-                                                }
-                                            });
-                                    AlertDialog alert = builder.create();
-                                    alert.show();
 
 
+                                 else {
+                                    runOnUiThread(new Runnable() {
+                                        public void run() {
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(TimeLine_msg.this);
+                                            builder.setTitle("Unsuccessful Post!");
+                                            builder.setMessage("Due to some reasons your post cant posted")
+                                                    .setCancelable(false)
+                                                    .setPositiveButton("Try Again!", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+
+                                                        }
+                                                    });
+                                            AlertDialog alert = builder.create();
+                                            alert.show();
+
+
+                                        }
+                                    });
                                 }
-                            });
-                        }
+                            }
+                        });
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

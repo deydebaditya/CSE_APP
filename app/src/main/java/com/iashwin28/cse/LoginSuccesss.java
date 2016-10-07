@@ -16,7 +16,6 @@ import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
-import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +26,8 @@ import android.widget.TextView;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginSuccesss extends AppCompatActivity {
 
@@ -46,15 +47,16 @@ public class LoginSuccesss extends AppCompatActivity {
     ImageView tryimg;
 
 
-    String[] web = {
-            "TIME-TABLE",
-            "Notifications",
-            "TimeLine",
-            "Discussion Forum",
-            "File Sharing",
-            "Your Profile",
-            "Logout"
-    } ;
+//    String[] web = {
+//            "TIME-TABLE",
+//            "Notifications",
+//            "TimeLine",
+//            "MCQ Test",
+//            "File Sharing",
+//            "Your Profile",
+//            "Logout"
+//    } ;
+List<String> web = new ArrayList<String>();
     Integer[] imageId = {
             R.drawable.calendar,
             R.drawable.notifications,
@@ -66,13 +68,13 @@ public class LoginSuccesss extends AppCompatActivity {
 
     };
     Integer[] back = {
-           R.drawable.tt,
-            R.drawable.tt,
-            R.drawable.tt,
-            R.drawable.tt,
-            R.drawable.tt,
-            R.drawable.tt,
-            R.drawable.tt
+           R.color.listbg1,
+            R.color.listbg2,
+            R.color.listbg3,
+            R.color.listbg4,
+            R.color.listbg5,
+            R.color.listbg6,
+            R.color.listbg7
     };
 
 
@@ -87,7 +89,7 @@ public class LoginSuccesss extends AppCompatActivity {
         setContentView(R.layout.activity_login_successs);
 
 
-        tryimg = (ImageView)findViewById(R.id.imagetool);
+      //  tryimg = (ImageView)findViewById(R.id.imagetool);
         Name = SaveSharedPreference.getUserName(LoginSuccesss.this);
         roll = SaveSharedPreference.getUserRoll(LoginSuccesss.this);
         year = SaveSharedPreference.getUserYear(LoginSuccesss.this);
@@ -106,8 +108,16 @@ public class LoginSuccesss extends AppCompatActivity {
         {
 
         }
-        rol=(TextView)findViewById(R.id.roll);
-        rol.setText(roll);
+
+        web.add("HELLO "+Name);
+        web.add("NOTIFICATIONS");
+        web.add("TIMELINE");
+        web.add("TIMETABLE");
+        web.add("MCQ TEST");
+        web.add("FILE SHARING");
+        web.add("LOGOUT");
+//        rol=(TextView)findViewById(R.id.roll);
+//        rol.setText(roll);
 
 //        actionBar.setDisplayOptions(actionBar.getDisplayOptions()
 //                | ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -126,9 +136,9 @@ public class LoginSuccesss extends AppCompatActivity {
                 CustomList(LoginSuccesss.this, web, imageId,back);
         Log.d("andro",image);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
      //   profile=(ImageView)findViewById(R.id.imageView4);
 
 //        background =(ImageView)findViewById(R.id.gecaimg);
@@ -166,7 +176,7 @@ public class LoginSuccesss extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
               //  Toast.makeText(LoginSuccesss.this, "You Clicked at " +web[+ position], Toast.LENGTH_SHORT).show();
-                if(position==0)
+                if(position==3)
                 {
                     Intent i = new Intent(LoginSuccesss.this,TimeTable.class);
                     startActivity(i);
@@ -204,6 +214,15 @@ public class LoginSuccesss extends AppCompatActivity {
                     i.putExtra("year",year);
                     Log.i("andro","year"+year);
                     startActivity(i);
+                }
+                if (position==4)
+                {
+                    Intent i = new Intent(LoginSuccesss.this,mcqtest.class);
+                    i.putExtra("name",Name);
+                    i.putExtra("image",image);
+                    i.putExtra("year",year);
+                    startActivity(i);
+
                 }
                 if(position==6)
                 {
@@ -266,7 +285,7 @@ public class LoginSuccesss extends AppCompatActivity {
             Bitmap round = getRoundedShape(a);
            // String text = a.toString();
         //    Log.d("andro","imagecode"+a.toString());
-            tryimg.setImageBitmap(round);
+            //tryimg.setImageBitmap(round);
         }
         catch(NullPointerException ex) {
 

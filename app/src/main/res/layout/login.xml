@@ -87,7 +87,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="So many students use our App! Why won&apos;t you?"
+            android:text="So many students use our App! Why don&apos;t you?"
             android:id="@+id/textView"
             android:textColor="#beffffff"
             android:layout_above="@+id/button2"

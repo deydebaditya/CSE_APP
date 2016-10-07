@@ -33,4 +33,11 @@
     <color name ="color25">#1c144a</color>
     <color name ="color26">#3f2a84</color>
     <color name ="color27">#f731d8</color>
+    <color name="listbg1">#f4db73</color>
+    <color name="listbg2">#f6b197</color>
+    <color name="listbg3">#f47382</color>
+    <color name="listbg4">#71c9a7</color>
+    <color name="listbg5">#76b1d6</color>
+    <color name="listbg6">#bb6b82</color>
+    <color name="listbg7">#8467ba</color>
 </resources>
