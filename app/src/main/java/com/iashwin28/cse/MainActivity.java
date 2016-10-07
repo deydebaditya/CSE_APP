@@ -64,7 +64,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-
+//This is initial comment for testing github by rugved! #1
     HttpPost httppost;
     SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES = "MyPrefs";
